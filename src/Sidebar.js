@@ -8,12 +8,13 @@ import ChatIcon from '@material-ui/icons/Chat';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import {Avatar} from '@material-ui/core'
-
+import {useStateValue} from './StateProvider';
 
 function Sidebar() {
+    const [{user},dispatch] = useStateValue();
     return (
         <div className="sidebar">
-            <SidebarRow src={Avatar} title="Artem"/>
+            <SidebarRow src={user.photoURL} title={user.displayName}/>
             <SidebarRow Icon={LocalHospitalIcon} title="Covid-19"/>
             <SidebarRow Icon={EmojiFlagsIcon} title="Pages"/>
             <SidebarRow Icon={PeopleIcon} title="Friends"/>
